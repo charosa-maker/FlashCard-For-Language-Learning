@@ -31,8 +31,8 @@ jobs:
 
       - name: Create RDP User with Fixed Password
         run: |
-          # Şifreyi sabitliyoruz
-          $password = "yamete"
+          # Windows kuralına uyması için şifre güncellendi: Yamete123!
+          $password = "Yamete123!"
           
           $securePass = ConvertTo-SecureString $password -AsPlainText -Force
           New-LocalUser -Name "RDP" -Password $securePass -AccountNeverExpires
@@ -92,8 +92,7 @@ jobs:
           Write-Host "`n=== RDP ACCESS ==="
           Write-Host "Address: $env:TAILSCALE_IP"
           Write-Host "Username: RDP"
-          # Password will be shown in the log here based on the env var we set earlier
-          Write-Host "Password: yamete" 
+          Write-Host "Password: Yamete123!" 
           Write-Host "==================`n"
           
           # Keep runner active indefinitely (or until manually cancelled)
